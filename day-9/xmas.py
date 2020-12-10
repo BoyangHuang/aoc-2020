@@ -6,6 +6,10 @@ with open("input.txt", mode="r") as f:
     for i, line in enumerate(f.readlines()):
         numbers.append(int(line))
 
+# upper, lower = 25, 0
+# while True:
+#     candidiate = numbers[upper]
+#     number_range = numbers[lower: upper]
 
 current_numbers = deque()
 answer = 375054920
