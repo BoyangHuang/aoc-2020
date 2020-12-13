@@ -24,12 +24,8 @@ with open("input.txt", mode="r") as f:
     timestamps = sorted([(t[0], (t[1]-largest_index)) for t in timestamps], reverse=True)
 
 
-
 start_time = max(timestamps)[0]
-# longest_timestamp = max(timestamps)
-print(start_time)
-print(timestamps)
-root = start_time#ceil(200000000000000/start_time) * int(start_time)
+root = start_time
 while True:
     success = True
     successes = []
@@ -44,7 +40,7 @@ while True:
     if success:
         answer = (root - len(timestamps)+1)
         normalize_negatives = min([0, *[n[1] for n in timestamps if n[1] < 0]])
-        print("success", root + normalize_negatives, " but you have to subtract the negative number from above")
+        print("success", root + normalize_negatives)
         break
     else:
         # whenever we find a success, we lock it in. We can now increment the root by the LCM of all the successes.
