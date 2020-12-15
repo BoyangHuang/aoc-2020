@@ -38,7 +38,7 @@ class Instruction:
             processed_bitstring += bit_operation(bitstring[i])
         return processed_bitstring
 
-    def _process_instruction(self, value):
+    def _process_instruction_v1(self, value):
         bitstring = f"{int(value):036b}"
         processed_bitstring = ""
         for i, c in enumerate(self.mask):
@@ -46,11 +46,11 @@ class Instruction:
             processed_bitstring += bit_operation(bitstring[i])
         return int(processed_bitstring, base=2)
 
-    def process_instructions(self):
+    def process_instructions_v1(self):
         memories = {}
         for operation in self.operations:
             memory, value = operation
-            memories[memory] = self._process_instruction(value)
+            memories[memory] = self._process_instruction_v1(value)
         return memories
 
     def process_instructions_v2(self):
